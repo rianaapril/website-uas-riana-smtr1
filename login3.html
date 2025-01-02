@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(potouas.jpg);
+            background-size: contain; /* Menyesuaikan ukuran gambar dengan layar */
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            color: black;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #696a6c; /* Warna latar belakang footer */
+            color: #fff; /* Warna teks footer */
+            width: 100%;
+            margin-top: 110px;
+        }
+        footer a {
+            color: #fff; /* Warna tautan di footer */
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login Akun</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+    <footer>
+        <p>Hubungi Kami: 123-0408-1813 | apriliariana066@gmail.com</p>
+            <p>&copy; 202 Pinjaman Online. Semua Hak Dilindungi.</p>
+     </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+
+            // Contoh validasi sederhana
+            if (username === "user" && password === "password") {
+                messageDiv.style.backgroundColor = "#d4edda"; // Warna hijau
+                messageDiv.innerHTML = "Login berhasil! Selamat datang, " + username + ".";
+                window.location.href = "percobaan.html"; 
+            } else {
+                messageDiv.style.backgroundColor = "#f8d7da"; // Warna merah
+                messageDiv.innerHTML = "Login gagal! Username atau password salah.";
+            }
+
+            messageDiv.style.display = "block";
+            // Menghapus pesan setelah 5 detik
+            setTimeout(() => {
+                messageDiv.style.display = "none";
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
